@@ -1,0 +1,16 @@
+version: "3"
+services:
+  redisdyp:
+    container_name: redisdyp
+    image: redis
+  web:
+    container_name: dyp-app
+    restart: always
+    build: ./dyp-app
+    command: []
+    ports:
+      - "5000:443"
+    environment:
+      - REDIS_NAME=redisdyp
+    depends_on:
+      - redisdyp

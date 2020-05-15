@@ -1,0 +1,52 @@
+body {
+  background: white;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, white);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, white);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, white);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, white);
+  /* Standard syntax (must be last) */
+}
+
+.form-signin {
+  max-width: 400px;
+  padding: 5px;
+  margin: 0 auto;
+  color: black;
+}
+.form-signin .form-signing-heading {
+  color: black;
+  text-align: center;
+}
+.form-signin form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 5px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 14px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+  box-shadow: 0 0 10px green;
+}
+.form-signin button:hover {
+  background-color: green;
+}
+.form-signin .error {
+  color: red;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=login.css.map */

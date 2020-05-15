@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('.static', filename='index.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Author: {{ author }}</h1>
+    <h2>Content: {{ content }}</h2>
+</div>
+{% endblock %}
+
+{% block navbar %}
+    {{nav.loggednavbar.render()}}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+</body>
+</html>

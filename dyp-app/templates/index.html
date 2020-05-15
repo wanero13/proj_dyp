@@ -1,0 +1,27 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    Strona główna
+{% endblock %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('.static', filename='index.css')}}">
+{% endblock %}
+
+{% block content %}
+     {% if reg %}
+        <h1>Registration succesful :)</h1>
+     {% endif %}
+    <h1>Welcome!</h1>
+    <p>To aplikacja stworzona w ramach projektu dyplomowego dotyczącego modelowania zagrożeń aplikacji internetowych. Email kontaktowy: 01130999@pw.edu.pl.</p>
+{% endblock %}
+
+{% block navbar %}
+    {{nav.mynavbar.render()}}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

@@ -1,0 +1,63 @@
+//$rainbow : (cyan,blue,#ab00ab,red,orange,yellow,#30ad2e);
+$rainbow: white;
+$h2c: black;
+$lightgreen: #00e000;
+$error: red;
+
+
+
+body {
+//  background-color: #eee;
+  background: white; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $rainbow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $rainbow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $rainbow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $rainbow); /* Standard syntax (must be last) */
+}
+
+.form-signin {
+  max-width: 400px;
+  padding: 5px;
+  margin: 0 auto;
+  color: $h2c;
+
+
+  .form-signing-heading{
+    color: $h2c;
+    text-align: center;
+  }
+
+  form-signin-heading,
+  .checkbox {
+    margin-bottom: 5px;
+  }
+
+  .checkbox {
+    font-weight: normal;
+  }
+
+  .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .form-control:focus {
+    z-index: 2;
+    box-shadow: 0 0 10px green;
+  }
+
+  button{
+    &:hover{
+      background-color: green;
+    }
+  }
+  .error{
+    color: $error;
+    font-weight: bold;
+  }
+}

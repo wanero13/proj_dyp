@@ -1,0 +1,37 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+    Sign up
+{% endblock %}
+
+{% block navbar %}
+    {{nav.mynavbar.render()}}
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <form action="/register" class="form-signin" enctype="multipart/form-data" id="myForm" method="POST" name="myForm">
+            <h2 class="form-signing-heading">Registration</h2>
+            {{ form.hidden_tag() }}
+            {{ form.csrf_token }}
+            {{ wtf.form_field(form.login) }}
+            {{ wtf.form_field(form.password) }}
+            <h6 id="entropy"></h6>
+            {{ wtf.form_field(form.confirm) }}
+            {{ wtf.form_field(form.email) }}
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="myBtn">Create account</button>
+        </form>
+
+    </div> <!-- /container -->
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="{{url_for('.static', filename='script.js')}}"></script>
+{% endblock %}
