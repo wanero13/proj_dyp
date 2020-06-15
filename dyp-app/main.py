@@ -65,6 +65,7 @@ def loggednavbar():
         'SUPER SECURE APP',
         View('Main page', 'index'),
         View('Notes', 'notes'),
+        View('Private notes', 'pnotes'),
         View('Add note', 'addnote'),
         View('Change Password', 'changepasswd'),
         View('Logout', 'logout'),
@@ -143,6 +144,18 @@ def notes():
     print(notes)
 
     return render_template('myfiles.html', notes=notes)
+
+@app.route('/pnotes', methods=[GET])
+def pnotes():
+    session_id = request.cookies.get(SESSION_ID)
+    if session_id is None:
+        return redirect(url_for('logout'))
+    if not session_db.exists(session_id):
+        return redirect(url_for('logout'))
+    notes = notes_db.keys('*')
+    print(notes)
+
+    return render_template('pfiles.html', notes=notes)
 
 
 @app.route('/changepasswd', methods=[GET, POST])

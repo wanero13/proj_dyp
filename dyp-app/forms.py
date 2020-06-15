@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, HiddenField, TextAreaField
+from wtforms import StringField, PasswordField, HiddenField, TextAreaField, BooleanField
 from wtforms.validators import InputRequired, Length, Regexp, Email, EqualTo, ValidationError
 import redis
 import hashlib, binascii
@@ -52,7 +52,7 @@ class PasswordChangeForm(FlaskForm):
 class AddNoteForm(FlaskForm):
     name = StringField('name', validators=[InputRequired(), Length(min=3, max=20, message='Note name must be between 3 and 20 characters'), Regexp('^[a-zA-Z0-9,.!?]+', message='Name of your note must contain only letters, numbers and punctuation marks!')])
     content = TextAreaField('content', validators=[InputRequired(), Length(min=1,max=300, message='Your note must be between 1 and 300 symbols'), Regexp('^[a-zA-Z0-9,.!?]+', message='Your note can contain only letters numbers and puctuation marks!')])
-
+    isPrivate = BooleanField('is note private?')
 
 def verify_password(stored_password, provided_password):
     salt = stored_password[:64]

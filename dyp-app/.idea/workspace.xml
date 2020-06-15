@@ -2,42 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c9e062-7bc5-44d1-a14d-c69aa63eaa9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dyp-app.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cert.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/key.pem" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/index.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/index.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/login.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/login.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/style.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/addnote.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/changegood.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/changepasswd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/logged.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/loggedout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/myfiles.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/note.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/problem.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/uploadgood.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/pfiles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addnote.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addnote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +33,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\waner\Desktop\proj_dyp\dyp-app\templates" />
+    </key>
   </component>
   <component name="RunManager" selected="Flask server.Flask (main.py)">
     <configuration name="forms" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -134,6 +111,9 @@
       <option name="presentableId" value="Default" />
       <updated>1588589272988</updated>
       <workItem from="1588589280205" duration="3294000" />
+      <workItem from="1589790801647" duration="79000" />
+      <workItem from="1591881214527" duration="797000" />
+      <workItem from="1592231222671" duration="4172000" />
     </task>
     <servers />
   </component>
@@ -141,6 +121,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1589790853136">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589790853136" />
     <state width="1557" height="170" key="GridCell.Tab.0.bottom" timestamp="1589205107988">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -159,7 +143,7 @@
     <state width="1557" height="170" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589205107988" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1588589805301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1592233184046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/dyp_app$forms.coverage" NAME="forms Coverage Results" MODIFIED="1588589798264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

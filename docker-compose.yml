@@ -5,7 +5,6 @@ services:
     image: redis
   web:
     container_name: dyp-app
-    restart: always
     build: ./dyp-app
     command: []
     ports:
