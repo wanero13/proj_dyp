@@ -2,13 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c9e062-7bc5-44d1-a14d-c69aa63eaa9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/pfiles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dbController.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/csrf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/validation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/Routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/AddNote.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/ChangePasswd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Notes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/PrivateNotes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Signup.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/validation/validate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../m-app/src/components/validation/validation_wrapper.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addnote.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/addnote.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/myfiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myfiles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/note.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/note.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +33,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Flask Main" />
+        <option value="HTML File" />
+        <option value="Python Script" />
       </list>
+    </option>
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="JupyterTrust" id="52322f91-a351-4dd1-af73-7654c1032486" />
   <component name="ProjectId" id="1bRK4BnEiAZbTOQMJ2sSX8BCbOR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -32,8 +60,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -100,6 +130,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -113,37 +144,30 @@
       <workItem from="1588589280205" duration="3294000" />
       <workItem from="1589790801647" duration="79000" />
       <workItem from="1591881214527" duration="797000" />
-      <workItem from="1592231222671" duration="4172000" />
+      <workItem from="1592231222671" duration="4772000" />
+      <workItem from="1596798126444" duration="629000" />
+      <workItem from="1604248036664" duration="4393000" />
+      <workItem from="1604253345671" duration="2573000" />
+      <workItem from="1606053312062" duration="1569000" />
+      <workItem from="1606058468233" duration="6017000" />
+      <workItem from="1606596933162" duration="47000" />
+      <workItem from="1606597060173" duration="14152000" />
+      <workItem from="1606681546596" duration="155000" />
+      <workItem from="1606681705818" duration="1215000" />
+      <workItem from="1606944303112" duration="186000" />
+      <workItem from="1606944589606" duration="251000" />
+      <workItem from="1606944973910" duration="994000" />
+      <workItem from="1607189393464" duration="18289000" />
+      <workItem from="1607285538424" duration="466000" />
+      <workItem from="1607373335876" duration="1471000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1589790853136">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589790853136" />
-    <state width="1557" height="170" key="GridCell.Tab.0.bottom" timestamp="1589205107988">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1557" height="170" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589205107988" />
-    <state width="1557" height="170" key="GridCell.Tab.0.center" timestamp="1589205107988">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1557" height="170" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589205107988" />
-    <state width="1557" height="170" key="GridCell.Tab.0.left" timestamp="1589205107988">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1557" height="170" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589205107988" />
-    <state width="1557" height="170" key="GridCell.Tab.0.right" timestamp="1589205107988">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state width="1557" height="170" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589205107988" />
+    <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1592233184046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/dyp_app$forms.coverage" NAME="forms Coverage Results" MODIFIED="1588589798264" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dyp_app$forms.coverage" NAME="forms Coverage Results" MODIFIED="1604248288575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1607373619824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

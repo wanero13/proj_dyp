@@ -1,0 +1,12 @@
+{
+  "name": "m-app",
+  "displayName": "m-app",
+  "expo": {
+    "name": "m-app",
+    "slug": "m-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

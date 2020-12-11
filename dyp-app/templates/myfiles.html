@@ -17,7 +17,14 @@
         <table>
     {% for x in notes %}
         <tr>
-            <td><a href="/note/{{ x }}">{{ x }}</a></td>
+
+            <td><a href="/note/{{ x[0] }}">{{ x[1] }}</a>
+                {% if x[2] == 1 %}
+         Private
+       {% else %}
+            Public
+       {% endif %}
+            </td>
         </tr>
     {% endfor %}
         </table>
