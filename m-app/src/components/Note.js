@@ -3,65 +3,52 @@ import {View, TouchableOpacity, Text, Button, StyleSheet, TextInput, FlatList} f
 import {Actions} from 'react-native-router-flux';
 
 
-export default class PrivateNotes extends Component {
+export default class Note extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            notes: [],
+            note_id: props.note_id,
+            note: []
         };
     }
 
     componentDidMount = async () => {
-        this.willFocusSubscription = this.props.navigation.addListener(
-            'willFocus',
-            async() => {
-                await this.loadNotes();
-            }
-        );
-
+        await this.loadNote();
     };
 
-    componentWillUnmount() {
-        this.willFocusSubscription.remove();
-    };
-
-    loadNotes = async () => {
+    loadNote = async () => {
+        let note_id=this.state.note_id
         try {
-            const response = await fetch(`http://localhost:5000/api/pnotes`, {
+            const response = await fetch(`http://localhost:5000/api/note/${note_id}`, {
                 method: 'GET',
                 credentials: "include",
             });
-            console.log(data);
             var data = await response.json();
-            this.setState({notes: data})
+            this.setState({note: data})
+            console.log(this.state.note)
         } catch (error) {
             console.log(error);
         }
     };
 
-
-
     render() {
-        let startList = <Text>There are no private notes.</Text>;
-        if (this.state.notes.length > 0) {
-            startList = <FlatList
-                data={this.state.notes}
-                renderItem={({item}) => (
-                    <View style={styles.container}>
-                        <TouchableOpacity style={styles.button} onPress={() => Actions.note({note_id: item[0]})}>
-                            <Text style={styles.buttonText}>
-                                {item[1].toString()}
-                            </Text>
-                        </TouchableOpacity>
-                    </View>)}
-                keyExtractor={item => item.toString()}
-                extraData={this.state}
-            />
-        }
+        let noteElement = <Text>Can't find this note.</Text>;
+        if (this.state.note.length > 0) {
+            let note = this.state.note
+            noteElement = <View style={styles.container}>
+                <Text style={styles.buttonText}>
+                    Author: {note[1]}
+                </Text>
+                <Text style={styles.buttonText}>
+                    Title: {note[3]}
+                </Text>
+                <Text style={styles.buttonText}>
+                    Content: {note[4]}
+                </Text>
+                    </View>}
         return (
             <View style={styles.container}>
-                <Text style={styles.logoText}>Public Notes</Text>
-                {startList}
+                {noteElement}
             </View>
         )
     }

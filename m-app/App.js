@@ -1,11 +1,17 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import Routes from "./src/Routes";
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-community/async-storage';
 
-const cookie = ''
+const cookie = '';
 
 export default class App extends Component {
+
+    componentDidMount() {
+        AsyncStorage.setItem('cookie', 'ABBA');
+    }
+
+
 
     setCurrentUser = (id, user) => {
         this.setState({userId: id, currentUser: user});

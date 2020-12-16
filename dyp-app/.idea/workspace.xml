@@ -2,27 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1c9e062-7bc5-44d1-a14d-c69aa63eaa9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dbController.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/csrf.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/validation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/Routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/AddNote.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/ChangePasswd.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Notes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/PrivateNotes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/Signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/validation/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../m-app/src/components/validation/validation_wrapper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dyp-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dyp-app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/myfiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/myfiles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/note.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/note.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/AddNote.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/AddNote.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/ChangePasswd.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/ChangePasswd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/PrivateNotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/PrivateNotes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/validation/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../m-app/src/components/Note.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../m-app/src/components/validation/validation_wrapper.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +62,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -160,6 +159,11 @@
       <workItem from="1607189393464" duration="18289000" />
       <workItem from="1607285538424" duration="466000" />
       <workItem from="1607373335876" duration="1471000" />
+      <workItem from="1607700317400" duration="71000" />
+      <workItem from="1607700451222" duration="1867000" />
+      <workItem from="1607773008865" duration="1330000" />
+      <workItem from="1607794306715" duration="12628000" />
+      <workItem from="1608144601489" duration="4471000" />
     </task>
     <servers />
   </component>
@@ -168,6 +172,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/dyp_app$forms.coverage" NAME="forms Coverage Results" MODIFIED="1604248288575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1607373619824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/dyp_app$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1608149332830" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

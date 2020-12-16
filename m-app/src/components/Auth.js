@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
-import {Actions} from 'react-native-router-flux'
-import AsyncStorage from '@react-native-community/async-storage'
-import CookieManager from 'react-native-cookies'
+import {Actions} from 'react-native-router-flux';
+import AsyncStorage from '@react-native-community/async-storage';
+import CookieManager from 'react-native-cookies';
 
 export default class Auth extends Component {
     componentDidMount() {
@@ -10,7 +10,8 @@ export default class Auth extends Component {
     }
 
     isAuth = async () => {
-        let cookie = await AsyncStorage.getItem('sId')
+        let cookie = await AsyncStorage.getItem('cookie');
+        console.log(cookie);
         fetch("http://localhost:5000/api/login", {
             headers: {'Cookie': cookie},
             method: 'get',
@@ -22,15 +23,12 @@ export default class Auth extends Component {
             if (responseObject.status === 200){
                 Actions.authUser();
             }
-
-            AsyncStorage.setItem('sId', responseObject.headers.get('set-cookie'))
             Actions.login()
         }).catch((error) => {
             console.log('error: ' + error);
             this.setState({logged: false});
         })
     };
-
     render() {
         return (
             <View style={styles.container}>

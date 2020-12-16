@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import ValidationComponent from 'react-native-form-validator';
+import AsyncStorage from "@react-native-community/async-storage";
 
 export default class Login extends ValidationComponent {
     constructor(props) {
@@ -22,11 +23,23 @@ export default class Login extends ValidationComponent {
         this.setState({password: value});
     };
 
+    _onSubmitLogin() {
+        this.validate({
+            login: {minlength:4, maxlength:30, required: true},
+            password: {minlength:8, maxlength:30, required: true, hasNumber: true, hasUpperCase: true, hasSpecialCharacter: true},
+        });
+    }
+
     onSubmitLogin = async (event) => {
         event.preventDefault();
+        this._onSubmitLogin()
+        if (!this.isFormValid()){
+            return
+        }
+        let cookie = await AsyncStorage.getItem('cookie');
         fetch('http://localhost:5000/api/login', {
             method: 'post',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json','Cookie': cookie},
             credentials: "include",
             body: JSON.stringify({
                 loginl: this.state.login,
@@ -39,14 +52,26 @@ export default class Login extends ValidationComponent {
             } else return response;
         }).then((responseObject) => {
             this.setState({logged: true});
-            console.log(responseObject);
-            console.log('inside');
+            console.log('HEY');
+            console.log(responseObject.headers.get('set-cookie'));
+            this._storeCookie(responseObject.headers.get('set-cookie'));
 
             Actions.authUser();
         }).catch((error) => {
             console.log('error: ' + error);
             this.setState({logged: false});
         })
+    };
+
+    _storeCookie = async (value) => {
+        try {
+            await AsyncStorage.setItem(
+                'cookie',
+                value
+            );
+        } catch (error) {
+            // Error saving data
+        }
     };
 
     _onSubmit() {
@@ -63,9 +88,11 @@ export default class Login extends ValidationComponent {
                 <Text style={styles.logoText}>Login page</Text>
                 <TextInput style={styles.inputBox} value={this.state.login}
                            onChangeText={this.onLoginChange} placeholder="login" placeholderTextColor='#fff5e1'/>
+                {this.isFieldInError('login') && this.getErrorsInField('login').map(errorMessage => <Text key={errorMessage}>{errorMessage.toString()}</Text>) }
                 <TextInput style={styles.inputBox} value={this.state.password}
                            onChangeText={this.onPasswordChange} placeholder="password" placeholderTextColor='#fff5e1'
                            secureTextEntry={true}/>
+                {this.isFieldInError('password') && this.getErrorsInField('password').map(errorMessage => <Text key={errorMessage}>{errorMessage.toString()}</Text>) }
                 <TouchableOpacity style={styles.button} onPress={this.onSubmitLogin.bind(this)}>
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>

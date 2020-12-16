@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {View, TouchableOpacity, Text, Button, StyleSheet, TextInput} from 'react-native';
 import { Actions } from 'react-native-router-flux'
+import AsyncStorage from "@react-native-community/async-storage";
+import FlashMessage from "react-native-flash-message";
 
 
 export default class Home extends Component {
@@ -8,9 +10,44 @@ export default class Home extends Component {
         super(props);
     }
 
-    onSubmitLogout = (event) => {
+    componentDidMount = async () => {
+        this.willFocusSubscription = this.props.navigation.addListener(
+            'willFocus',
+            () => {
+                this.isAuth()
+            }
+        );
+    }
+
+    componentWillUnmount() {
+        this.willFocusSubscription.remove();
+    }
+
+    isAuth = async () => {
+        let cookie = await AsyncStorage.getItem('cookie');
+        console.log(cookie);
+        fetch("http://localhost:5000/api/login", {
+            headers: {'Cookie': cookie},
+            method: 'get',
+            credentials: "include"
+        }).then((response) => {
+            return response;
+        }).then((responseObject) => {
+            console.log(responseObject.status);
+            if (responseObject.status !== 200){
+                Actions.newUser();
+            }
+        }).catch((error) => {
+            console.log('error: ' + error);
+            this.setState({logged: false});
+        })}
+
+
+    onSubmitLogout = async (event) => {
         event.preventDefault();
+        let cookie = await AsyncStorage.getItem('cookie');
         fetch("http://localhost:5000/api/logout", {
+            headers: {'Cookie': cookie},
             method: 'post',
             credentials: "include"
         }).then((response) => {
@@ -18,7 +55,7 @@ export default class Home extends Component {
                 throw new Error(response.statusText);
             } else return response;
         }).then((responseObject) => {
-            console.log("Logged out user: " + responseObject.username)
+            console.log("Logged out user")
             Actions.newUser();
         }).catch((error) => {
             console.log('error: ' + error);
@@ -29,11 +66,17 @@ export default class Home extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>Welcome!</Text>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>PDF Files</Text>
+                <TouchableOpacity style={styles.button} onPress={Actions.notes}>
+                    <Text style={styles.buttonText}>Notes</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Bibliography</Text>
+                <TouchableOpacity style={styles.button} onPress={Actions.pnotes}>
+                    <Text style={styles.buttonText}>Private Notes</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={Actions.addnote}>
+                    <Text style={styles.buttonText}>Add Note</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={Actions.changepasswd}>
+                    <Text style={styles.buttonText}>Change Password</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={this.onSubmitLogout.bind(this)}>
                     <Text style={styles.buttonText}>Logout</Text>

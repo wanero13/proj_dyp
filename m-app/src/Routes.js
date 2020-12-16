@@ -9,6 +9,7 @@ import PrivateNotes from './components/PrivateNotes'
 import AddNote from './components/AddNote'
 import Auth from "./components/Auth";
 import ChangePasswd from "./components/ChangePasswd";
+import Note from "./components/Note";
 
 export default class Routes extends Component {
     constructor(props) {
@@ -27,9 +28,10 @@ export default class Routes extends Component {
                     <Scene key='authUser' hideNavBar={true} type={ActionConst.RESET}>
                         <Scene key='home' component={Home} title='Home' type={ActionConst.RESET}/>
                         <Scene key='notes' component={Notes} title='Notes'/>
-                        <Scene key='privatenotes' component={PrivateNotes} title='Privete notes'/>
+                        <Scene key='pnotes' component={PrivateNotes} title='Privete notes'/>
                         <Scene key='addnote' component={AddNote} title='Add note'/>
                         <Scene key='changepasswd' component={ChangePasswd} title='Change password'/>
+                        <Scene key='note' component={Note} title='Note'/>
                     </Scene>
                 </Stack>
             </Router>

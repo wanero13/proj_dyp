@@ -222,10 +222,7 @@ def note(id):
         return redirect(url_for('logout'))
     note = dbc.getNote(id)
     user_id = note[1]
-    print(note)
-    print(user_id)
     user = dbc.getUserById(user_id)
-    print(user)
     author = user[1]
     title = note[3]
     content = note[4]
@@ -269,10 +266,14 @@ def api_register():
         confirm = data['confirm_password']
         email = data['email']
         response = make_response('Could not add user', 400)
-        if validation.validateRegister(login, passwd, confirm, email):
+        error = validation.validateRegister(login, passwd, confirm, email)
+        if len(error)>1:
+            response = make_response(error, 400)
+            return response
+        else:
             dbc.insertUser(login, hash_password(passwd), email)
             response = make_response('', 200)
-    return response
+        return response
 
 
 @csrf.exempt
@@ -294,7 +295,11 @@ def api_login():
         if user is not None:
             login = data['loginl']
             passwd = data['passwordl']
-            if validation.validateLogin(login, passwd):
+            error = validation.validateLogin(login, passwd)
+            if len(error)>1:
+                response = make_response(error, 400)
+                return response
+            else:
                 stored = user[2]
                 if verify_password(stored, data['passwordl']):
                     login = data['loginl']
@@ -320,27 +325,74 @@ def api_changepasswd():
 
 
 @csrf.exempt
-@app.route('/api/notes', methods=[POST])
+@app.route('/api/notes', methods=[GET])
 def api_notes():
-    return "A"
+    response = make_response('', 200)
+    session_id = request.cookies.get(SESSION_ID)
+    if session_id is None or not session_db.exists(session_id):
+        response.status_code = 401
+        return response
+    notes = dbc.getAllPublicNotes()
+    print(notes)
+    return json.dumps(notes)
 
 
 @csrf.exempt
 @app.route('/api/note/<id>', methods=[GET])
 def api_note(id):
-    return "A"
+    response = make_response('', 200)
+    session_id = request.cookies.get(SESSION_ID)
+    if session_id is None or not session_db.exists(session_id):
+        response.status_code = 401
+        return response
+    onote = dbc.getNote(id)
+    user = dbc.getUserById(onote[1])
+    if user[1] is None:
+        note = (onote[0],'Can not find author', onote[2], onote[3], onote[4])
+    else:
+        note = (onote[0], user[1], onote[2], onote[3], onote[4])
+    print(note)
+    return json.dumps(note)
 
 
 @csrf.exempt
 @app.route('/api/addnote', methods=[POST])
 def api_addnote():
-    return "A"
+    response = make_response('', 200)
+    session_id = request.cookies.get(SESSION_ID)
+    if session_id is None or not session_db.exists(session_id):
+        response.status_code = 401
+        return response
+    user = request.cookies.get('login')
+    user_data = dbc.getUserByLogin(user)
+    user_id = user_data[0]
+    data = json.loads(request.data)
+    if data['isPrivate']:
+        isPrivate = 1
+    else:
+        isPrivate = 0
+    error = validation.validateNote(data['title'], data['content'])
+    if len(error)>1:
+        response = make_response(error, 400)
+        return response
+    dbc.insertNote(user_id, isPrivate, data['title'], data['content'])
+    return response
 
 
 @csrf.exempt
 @app.route('/api/pnotes', methods=[GET])
 def api_pnotes():
-    return "A"
+    response = make_response('', 200)
+    session_id = request.cookies.get(SESSION_ID)
+    if session_id is None or not session_db.exists(session_id):
+        response.status_code = 401
+        return response
+    user = request.cookies.get('login')
+    user_data = dbc.getUserByLogin(user)
+    user_id = user_data[0]
+    notes = dbc.getUserNotes(user_id)
+    print(notes)
+    return json.dumps(notes)
 
 
 @csrf.exempt
