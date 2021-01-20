@@ -17,7 +17,7 @@
 {% block content %}
     <div class="container">
         <form action="/addnote" class="form-signin" enctype="multipart/form-data" id="myForm" method="POST" name="myForm">
-            <h2 class="form-signing-heading">Sign in</h2>
+            <h2 class="form-signing-heading">Add note</h2>
             {{ form.hidden_tag() }}
             {{ form.csrf_token }}
             {{ wtf.form_field(form.name) }}

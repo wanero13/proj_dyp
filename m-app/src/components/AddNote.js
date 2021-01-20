@@ -45,7 +45,7 @@ export default class AddNote extends ValidationComponent {
             return
         }
         let cookie = await AsyncStorage.getItem('cookie');
-        fetch('http://localhost:5000/api/addnote', {
+        fetch('https://localhost:5000/api/addnote', {
             method: 'post',
             headers: {'Content-Type': 'application/json', 'Cookie': cookie},
             credentials: "include",

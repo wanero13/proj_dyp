@@ -60,7 +60,7 @@ export default class PrivateNotes extends Component {
         }
         return (
             <View style={styles.container}>
-                <Text style={styles.logoText}>Public Notes</Text>
+                <Text style={styles.logoText}>Private Notes</Text>
                 {startList}
             </View>
         )

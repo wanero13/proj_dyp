@@ -13,7 +13,9 @@ export default class Auth extends Component {
         let cookie = await AsyncStorage.getItem('cookie');
         console.log(cookie);
         fetch("http://localhost:5000/api/login", {
-            headers: {'Cookie': cookie},
+            headers: {'Cookie': cookie,
+                Accept: 'application/json',
+                'Content-Type': 'application/json'},
             method: 'get',
             credentials: "include"
         }).then((response) => {

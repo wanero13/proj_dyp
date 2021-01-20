@@ -19,10 +19,13 @@ export default class Note extends Component {
     loadNote = async () => {
         let note_id=this.state.note_id
         try {
-            const response = await fetch(`http://localhost:5000/api/note/${note_id}`, {
+            const response = await fetch(`https://localhost:5000/api/note/${note_id}`, {
                 method: 'GET',
                 credentials: "include",
             });
+            if (response.status===403){
+               this.setState({note:['NO ACCESS', 'NO ACCESS','NO ACCESS', 'NO ACCESS']})
+            }
             var data = await response.json();
             this.setState({note: data})
             console.log(this.state.note)

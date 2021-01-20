@@ -1,0 +1,1093 @@
+{
+  "summary": {
+    "title": "Model zagrożeń projektu dyplomowego",
+    "owner": "Rafał Pachnia",
+    "description": "Aplikacja internetowa i mobilna pozwalająca zamieszczać notatki publiczne i prywatne. Składa się z backendu budowanego z użyciem frameworku Flask, który serwuje strony HTML oraz wystawia API z którego korzysta aplikacja mobilna."
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Rafał Pachnia",
+        "$$hashKey": "object:14"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Model zagrożeń",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0,
+        "$$hashKey": "object:32",
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 22,
+                "y": 188
+              },
+              "angle": 0,
+              "id": "11f140ed-f034-4687-bb1b-9d5bc30046cc",
+              "z": 1,
+              "hasOpenThreats": false,
+              "description": "Osoba korzystająca z systemu",
+              "outOfScope": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isOutOfScope"
+                },
+                "text": {
+                  "text": "Przeglądarka"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 24,
+                "y": 32
+              },
+              "angle": 0,
+              "id": "a35bf234-ede0-427b-83f2-861d55f617bf",
+              "z": 2,
+              "hasOpenThreats": false,
+              "outOfScope": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isOutOfScope"
+                },
+                "text": {
+                  "text": "Telefon"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 335,
+                "y": 12
+              },
+              "angle": 0,
+              "id": "16034b4b-a389-441e-b533-359d7de38400",
+              "z": 4,
+              "hasOpenThreats": true,
+              "description": "Aplikacja mobilna",
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Szyfrowanie danych",
+                  "type": "Information disclosure",
+                  "description": "Zagrożenie wyciekiem przechowywanych danych",
+                  "mitigation": "Zabezpieczenie polega na poprawnym szyfrowaniu przechowywanych danych",
+                  "$$hashKey": "object:49"
+                },
+                {
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "title": "Zabezpieczenie wprowadzania danych",
+                  "type": "Tampering",
+                  "description": "Zagrożenie polegające na nie regulowaniu wprowadzanych przez użytkownik danych.",
+                  "mitigation": "Zabezpieczeniem jest walidacja wszelkich danych wprowadzanych przez użytkownika.",
+                  "$$hashKey": "object:354"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Wieloetapowa autentykacja",
+                  "type": "Spoofing",
+                  "description": "Zagrożenie polegające na łatwości podania się za użytkownika aplikacji poprzez zdobycie jego poświadczeń.",
+                  "mitigation": "Zabezpieczeniem jest wykorzystanie dokładnej i wieloetapowej autentykacji, która znaczenie utrudnia możliwośc podania się za inną osobę.",
+                  "$$hashKey": "object:402"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "Zagrożenie atakiem CSRF polegającym na zmuszeniu ofiary ataku do wykonania spreparowanego przez atakującego zapytania",
+                  "title": "Atak CSRF",
+                  "type": "Tampering",
+                  "mitigation": "Zabezpieczeniem może być wykorzystanie tokenów CSRF.",
+                  "$$hashKey": "object:429"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Bezpieczne komunikaty błędów",
+                  "type": "Information disclosure",
+                  "description": "Zagrożenie wycieku informacji poprzez komunikat błędu.",
+                  "mitigation": "Zabezpieczeniem jest skonstruowanie bezpiecznego komunikatu błędu.",
+                  "$$hashKey": "object:476"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Aplikacja\nmobilna"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 505,
+                "y": 239
+              },
+              "angle": 0,
+              "id": "452e21d3-18fe-4a63-b52d-283fa126b2e4",
+              "z": 5,
+              "hasOpenThreats": true,
+              "description": "Serwer Aplikacji",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Repudiation",
+                  "description": "Zagrożenie dotyczące niemożliwości sprawdzenia kto i kiedy dokonał jakiejś operacji",
+                  "mitigation": "Stworzenie logu, który przetrzymuje informacje o wykonanych operacjach oraz osobach które dane operace wykonały. Np. kiedy ktoś się logował, kiedy się wylogowywał, kiedy zamieścił notatkę.",
+                  "title": "Logi zdarzeń",
+                  "$$hashKey": "object:49"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Weryfikacja przychodzących danych",
+                  "type": "Tampering",
+                  "description": "Zagrożenie dotyczy zmiany danych wstawianych przez innych użytkowników",
+                  "mitigation": "Zabezpieczeniem jest dokładna weryfikacja treści zamieszczanych danych",
+                  "$$hashKey": "object:107"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Poprawna autoryzacja",
+                  "type": "Elevation of privilege",
+                  "description": "Zagrożenie dotyczy wykonywania operacji, do których użytkownik nie ma dostępu lub dostępu do zasobów do których nie powinien mieć dostępu. Wiąże się z poprawną autentykacją.",
+                  "mitigation": "Zabezpieczeniem jest dokładna i najlepiej wieloetapowa autoryzacja użytkownika.",
+                  "$$hashKey": "object:113"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Bezpieczny dostęp do baz",
+                  "type": "Tampering",
+                  "description": "Zagrożenie dotyczące wpłynięcia na sposób komunikacji z bazą, aby uzyskać z niej jakieś dane. Podanie jakiegoś elementu np. tytułu notatki w specjalnie spreparowany sposób tak, aby wpłynąć na wynik zapytania sql.",
+                  "mitigation": "Zabezpieczeniem jest wykorzystanie mapowania ORM i taka konstrukcja kodu, aby z danego miejsca moża było wykonać tylko dane zapytania. Zabezpieczeniem jest też taka konstrukcja działania aplikacji, aby użytkownik nie mógł wpłynąć na zaytanie sql.",
+                  "$$hashKey": "object:119"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Przeciążanie aplikacji",
+                  "type": "Denial of service",
+                  "description": "Zagrożenie dotyczy przeciążenia serwera poprzez wykonanie bardzo dużej ilości zapytań w krótkim czasie.",
+                  "mitigation": "Zabezpieczeniem przez takim działaniem jest wykorzystanie narzędzi broniących przez takim działaniem jak np. firewall",
+                  "$$hashKey": "object:95"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Zabezpieczenie logowania",
+                  "type": "Spoofing",
+                  "description": "Zagrożenie dotyczy możliwości wielokrotnych prób logowania na konto za pomocą metody bruteforce.",
+                  "mitigation": "Zabezpieczeniem jest standardowe ograniczenie ilości niepoprawnych logowań, a po przekroczeniu blokada konta.",
+                  "$$hashKey": "object:101"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Przechowywanie kluczy w bezpiecznym miejscu",
+                  "type": "Information disclosure",
+                  "description": "Zagrożenie wycieku kluczy z aplikacji.",
+                  "mitigation": "Na potrzeby produkcyjne klucze są wpisane tekstem w aplikacji. W  przypadku zastosowań produkcyjnych powinny być one wczytywane z bezpiecznego miejsca.",
+                  "$$hashKey": "object:501"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Backend"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 751,
+                "y": 282
+              },
+              "angle": 0,
+              "id": "ba86d29f-fc5a-4baf-a631-b1bdafede6ac",
+              "z": 6,
+              "hasOpenThreats": true,
+              "description": "Baza przechowująca użytkowników i notatki",
+              "storesCredentials": true,
+              "isEncrypted": false,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Przechowywanie informacji w formie plaintextu",
+                  "mitigation": "podstawowym rozwiązaniem jest przechowywanie hashy haseł. Służą do tego algorytmy bcrypt, scrypt czy pbkdf2",
+                  "title": "Hashowanie haseł",
+                  "$$hashKey": "object:56"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Szyfrowanie bazy danych",
+                  "type": "Information disclosure",
+                  "description": "Baza zawiera dane wrażliwe, a jest niezaszyfrowana",
+                  "mitigation": "Zaszyfrowanie bazy danych w celu ochrony danych.",
+                  "$$hashKey": "object:62"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Bezpieczny dostęp do bazy danych",
+                  "type": "Information disclosure",
+                  "description": "Zagrożenie polegające na usykanie dostępu do bazy przez podmiot nieuprwaniony.",
+                  "mitigation": "Dostęp do bazy danych powinien być możliwy tylko przez zaufanych klientów w zabezpieczonym środowisku. Narzędziem któe może to zapewnoć jest fiwewall.",
+                  "$$hashKey": "object:64"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "SQLite DB"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 533,
+                "y": 486
+              },
+              "angle": 0,
+              "id": "2f068fc2-3a84-48be-8e98-4b78e62efe87",
+              "z": 7,
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "description": "Baza przechowująca dane sesji",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "mitigation": "Dostęp do bazy danych powinien być możliwy tylko przez zaufanych klientów w zabezpieczonym środowisku. Narzędziem które to zapewnia jest firewall.",
+                  "description": "Zagrożenie polegające na uzyskaniu dostępu do bazy przez nieuprawniony podmiot.",
+                  "title": "Bezpieczny dostęp do bazy danych",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:80"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Redis"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 214,
+                "y": 4
+              },
+              "target": {
+                "x": 61,
+                "y": 362
+              },
+              "vertices": [
+                {
+                  "x": 250,
+                  "y": 110
+                },
+                {
+                  "x": 226,
+                  "y": 300
+                }
+              ],
+              "id": "a1daae92-1e10-42ef-9c9c-c8ee3a5dad7b",
+              "z": 8,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 655,
+                "y": 101
+              },
+              "target": {
+                "x": 405,
+                "y": 460
+              },
+              "vertices": [
+                {
+                  "x": 666,
+                  "y": 364
+                }
+              ],
+              "id": "e1857532-0738-4749-bdad-248c806f6c9e",
+              "z": 10,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 541,
+                "y": 339
+              },
+              "target": {
+                "x": 591,
+                "y": 483
+              },
+              "vertices": [],
+              "id": "aab53b45-801a-44b0-b875-0a73efcaf2a2",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.7097395617884614,
+                    "offset": 20.197045822056765
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Zapytanie do bazy",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 11,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 636,
+                "y": 481
+              },
+              "target": {
+                "x": 579,
+                "y": 335
+              },
+              "vertices": [],
+              "id": "e32c4246-841e-4431-bc5e-d374d66aa736",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6455722429012127,
+                    "offset": 35.598143615103325
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Wynik zapytania",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 13,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 744,
+                "y": 333
+              },
+              "target": {
+                "x": 603,
+                "y": 307
+              },
+              "vertices": [],
+              "id": "4d1c53e4-49a0-473b-98c9-5a843ce6516a",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.3026749198826106,
+                    "offset": -18.09588969178899
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Zapytanie do bazy",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 14,
+              "hasOpenThreats": false,
+              "threats": [],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 605,
+                "y": 275
+              },
+              "target": {
+                "x": 748,
+                "y": 297
+              },
+              "vertices": [],
+              "id": "672eb5fe-1d75-4939-a21a-b1f2e6fbde69",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.44455222368111,
+                    "offset": -11.677541423467597
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Wynik zapytania do\nbazy",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 15,
+              "hasOpenThreats": false,
+              "protocol": "",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 191,
+                "y": 97
+              },
+              "target": {
+                "x": 336,
+                "y": 83
+              },
+              "vertices": [],
+              "id": "c7714558-9afa-4bf7-8687-5e1fbbf05f27",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6386576713956402,
+                    "offset": 19.22439070372886
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Operacja",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 16,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 332,
+                "y": 41
+              },
+              "target": {
+                "x": 189,
+                "y": 57
+              },
+              "vertices": [],
+              "id": "9e9c8c33-fa90-41e1-a8dd-d1038c95cc88",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.46459625653490055,
+                    "offset": 18.86380722867568
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Wynik operacji",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 17,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 184,
+                "y": 219
+              },
+              "target": {
+                "x": 283,
+                "y": 267
+              },
+              "vertices": [],
+              "id": "0aa0c083-d5e6-49b0-849b-495a8d5a6c61",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.4858603926785365,
+                    "offset": -25.21100446515537
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Operacja",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 18,
+              "hasOpenThreats": false,
+              "outOfScope": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 279,
+                "y": 299
+              },
+              "target": {
+                "x": 182,
+                "y": 252
+              },
+              "vertices": [],
+              "id": "6b9d22c4-1349-46af-bf65-b866ac9c061a",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.5108090674872697,
+                    "offset": 23.515061743466095
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Wynik operacji",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 19,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 522,
+                "y": 253
+              },
+              "target": {
+                "x": 392,
+                "y": 112
+              },
+              "vertices": [],
+              "id": "9f887ae9-f46d-4608-b416-c71704adf251",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6156105446257052,
+                    "offset": -28.94766576216066
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Odpowiedź",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 22,
+              "hasOpenThreats": true,
+              "isPublicNetwork": true,
+              "isEncrypted": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Komunikacja tylko HTTPS",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:143"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Nagłówki zapewniające bezpieczeństwo",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:137"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Bezpieczeństwo ciasteczek",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:334"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 429,
+                "y": 87
+              },
+              "target": {
+                "x": 568,
+                "y": 237
+              },
+              "vertices": [],
+              "id": "f6f20b91-654a-464b-a58c-898479efa0af",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.6022866670879617,
+                    "offset": -6.451303683104379
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Zapytanie",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 23,
+              "hasOpenThreats": true,
+              "isPublicNetwork": true,
+              "isEncrypted": true,
+              "protocol": "HTTPS",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Szyfrowanie komunikacji",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:149"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Zabezpieczenie przed CSRF",
+                  "type": "Tampering",
+                  "$$hashKey": "object:155"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 263,
+                "y": 450
+              },
+              "target": {
+                "x": 550,
+                "y": 6
+              },
+              "vertices": [
+                {
+                  "x": 387,
+                  "y": 393
+                },
+                {
+                  "x": 530,
+                  "y": 88
+                }
+              ],
+              "id": "6f1782ce-ded4-43d2-9f73-3d75e9c3d0fd",
+              "z": 24,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 282,
+                "y": 238
+              },
+              "angle": 0,
+              "id": "4317bd44-4db7-439e-8a7c-cdfa72a4bbe9",
+              "z": 25,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Walidacja danych wprowadzanych przez użytkownika",
+                  "type": "Tampering",
+                  "description": "Zagrożenie polegające na wprowadzniu złośliwego kodu jako danych podawanych przez użytkownika.",
+                  "mitigation": "Zabezpieczenie polega na walidacji danych wprowadzanych przez użytkownika.",
+                  "$$hashKey": "object:149"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Low",
+                  "title": "Bezpieczne komunikaty błędów",
+                  "description": "Zagrożenie polegające na udostępnieniu informacji, których nie chcemy udostępniać po wystąpieniu błędu i wyświetleniu informacji o nim.",
+                  "mitigation": "Zabezpieczeniem jest spreparowanie ogólnych i bezpiecznych pod wymienionem kontem informacji o błędach.",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:366"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Wieloetapowa autentykacja",
+                  "type": "Spoofing",
+                  "description": "Zagrożenie polegające na łatwym zdobyciu poświadczeń użytkownika i podaniu się za niego.",
+                  "mitigation": "Zabezpieczeniem jest wykorzystanie dokładnej i wieloetapowej autentykacji, która znaczenie utrudnia możliwośc podania się za inną osobę.",
+                  "$$hashKey": "object:394"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Ochrona przed przeciążeniem aplikacji",
+                  "type": "Denial of service",
+                  "$$hashKey": "object:126"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Sprawdzenie danych przychodzących",
+                  "type": "Tampering",
+                  "$$hashKey": "object:143"
+                }
+              ],
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Frontend"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 384,
+                "y": 298
+              },
+              "target": {
+                "x": 514,
+                "y": 316
+              },
+              "vertices": [],
+              "id": "bec57468-067f-4cf1-b56a-5f7fbb5dd790",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "Zapytanie",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 28,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Szyfrowanie połączenia",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:279"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Bezpieczne nagłówki",
+                  "type": "Tampering",
+                  "$$hashKey": "object:73"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Bezpieczne ciasteczka",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:86"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "452e21d3-18fe-4a63-b52d-283fa126b2e4"
+              },
+              "target": {
+                "x": 381,
+                "y": 267
+              },
+              "vertices": [],
+              "id": "dafc55f7-bcac-48be-822b-c9c084ee5b10",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "Odpowiedź",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 29,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "title": "Szyfrowanie połączenia",
+                  "type": "Information disclosure",
+                  "$$hashKey": "object:325"
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": 590,
+          "width": 961
+        }
+      }
+    ]
+  }
+}

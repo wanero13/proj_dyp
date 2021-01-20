@@ -140,7 +140,7 @@ def login():
                 # response.set_cookie(SESSION_ID, username, max_age=600, httponly=True)
                 response.set_cookie(SESSION_ID, userid, max_age=600)
                 token = create_access_token(identity=login)
-                response.set_cookie("jwt", token, max_age=600)
+                # response.set_cookie("jwt", token, max_age=600)
                 response.set_cookie('login', login, max_age=600)
                 return response
             return render_template('login.html', form=form, good=True)
@@ -157,7 +157,7 @@ def logout():
         session_db.delete(session_id)
     response = redirect(url_for('index'))
     response.set_cookie(SESSION_ID, '', expires=0)
-    response.set_cookie("jwt", '', expires=0)
+    # response.set_cookie("jwt", '', expires=0)
     response.set_cookie('login', '', max_age=600)
     return response
 
@@ -183,7 +183,8 @@ def mynotes():
         return redirect(url_for('logout'))
     if not session_db.exists(session_id):
         return redirect(url_for('logout'))
-    user = request.cookies.get('login')
+    ssid = request.cookies.get(SESSION_ID)
+    user = session_db.get(ssid)
     user_data = dbc.getUserByLogin(user)
     user_id = user_data[0]
     notes = dbc.getUserNotes(user_id)
@@ -205,7 +206,8 @@ def changepasswd():
         return render_template('problem.html')
     form.hidden = hidden
     if form.validate_on_submit():
-        user = request.cookies.get('login')
+        ssid = request.cookies.get(SESSION_ID)
+        user = session_db.get(ssid)
         user_data = dbc.getUserByLogin(user)
         user_id = user_data[0]
         dbc.updatePassword(user_id, hash_password(form.newpassword.data))
@@ -220,12 +222,17 @@ def note(id):
         return redirect(url_for('logout'))
     if not session_db.exists(session_id):
         return redirect(url_for('logout'))
+    ssid = request.cookies.get(SESSION_ID)
+    suser = session_db.get(ssid)
     note = dbc.getNote(id)
     user_id = note[1]
     user = dbc.getUserById(user_id)
     author = user[1]
+    isPrivate = note[2]
     title = note[3]
     content = note[4]
+    if suser != author and int(isPrivate) == 1:
+        return render_template('note.html', content='YOU HAVE NO ACCESS TO THIS NOTE', title='', author='')
     return render_template('note.html', content=content, title=title, author=author)
 
 
@@ -267,7 +274,7 @@ def api_register():
         email = data['email']
         response = make_response('Could not add user', 400)
         error = validation.validateRegister(login, passwd, confirm, email)
-        if len(error)>1:
+        if len(error) > 1:
             response = make_response(error, 400)
             return response
         else:
@@ -296,7 +303,7 @@ def api_login():
             login = data['loginl']
             passwd = data['passwordl']
             error = validation.validateLogin(login, passwd)
-            if len(error)>1:
+            if len(error) > 1:
                 response = make_response(error, 400)
                 return response
             else:
@@ -310,7 +317,7 @@ def api_login():
                     # response.set_cookie(SESSION_ID, username, max_age=600, httponly=True)
                     response.set_cookie(SESSION_ID, userid, max_age=600)
                     token = create_access_token(identity=login)
-                    response.set_cookie("jwt", token, max_age=600)
+                    # response.set_cookie("jwt", token, max_age=600)
                     response.set_cookie('login', login, max_age=600)
                     response.status_code = 200
                     return response
@@ -347,11 +354,15 @@ def api_note(id):
         return response
     onote = dbc.getNote(id)
     user = dbc.getUserById(onote[1])
-    if user[1] is None:
-        note = (onote[0],'Can not find author', onote[2], onote[3], onote[4])
-    else:
-        note = (onote[0], user[1], onote[2], onote[3], onote[4])
-    print(note)
+    note = (onote[0], user[1], onote[2], onote[3], onote[4])
+    isPrivate = onote[2]
+    ssid = request.cookies.get(SESSION_ID)
+    suser = session_db.get(ssid)
+    if suser != user and int(isPrivate) == 1:
+        response.status_code = 403
+        return response
+    response.status_code = 403
+    return response
     return json.dumps(note)
 
 
@@ -372,7 +383,7 @@ def api_addnote():
     else:
         isPrivate = 0
     error = validation.validateNote(data['title'], data['content'])
-    if len(error)>1:
+    if len(error) > 1:
         response = make_response(error, 400)
         return response
     dbc.insertNote(user_id, isPrivate, data['title'], data['content'])
